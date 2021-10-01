@@ -8,6 +8,9 @@ function Gameboard() {
                 <Square value={0}/>
                 <Square value={1}/>
                 <Square value={2}/>
+                <Square>
+                    <p>hello guys can you play the game</p>
+                </Square>
             </div>
             <div className="rows">
                 <Square value={3}/>
