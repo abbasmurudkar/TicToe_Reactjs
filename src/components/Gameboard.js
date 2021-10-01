@@ -10,14 +10,14 @@ function Gameboard() {
                 <Square value={2}/>
             </div>
             <div className="rows">
-                <Square/>
-                <Square/>
-                <Square/>
+                <Square value={3}/>
+                <Square value={4}/>
+                <Square value={5}/>
             </div>
             <div className="rows">
-                <Square/>
-                <Square/>
-                <Square/>
+                <Square value={6}/>
+                <Square value={7}/>
+                <Square value={8}/>
             </div>
 
         </div>
