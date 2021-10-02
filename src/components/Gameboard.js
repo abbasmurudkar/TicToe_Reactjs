@@ -1,30 +1,11 @@
-import React, { useState } from 'react'
 import Square from './Square'
 
-function Gameboard() {
-    const [gameboard, setgameboard] = useState(Array(9).fill(null))
-    const [zero, setzero] = useState(false)
-    console.log(gameboard)
-    const handleclick = (position) => {
-
-        if (gameboard[position]) {  //if board position exist then return this code is written because it will dont allow to overwrite on it
-            return;
-        }
-
-        setgameboard((previous) => {
-            return previous.map((square, pos) => {
-                if (pos === position)   //map has its own index value so that it can compare index value with position of square
-                {
-                    return zero ? 'X' : '0'
-                }
-                return square    //returning the values
-            })
-        })
-        setzero((previous) => !previous) //this statement will make true for zero and then again false
-    }
+function Gameboard({gameboard,handleclick}) {
 
     const rendersquare = (position) => {
-        return <Square value={gameboard[position]} update={() => { handleclick(position) }} />  /* if we directly put the function while using props it will immediately execute for that use arrow function like this so that it works proper*/
+        return <Square value={gameboard[position]} update={() => { handleclick(position) }} />  
+        /* if we directly put the function while using props it will immediately execute for that use arrow function 
+        like this so that it works proper*/
     }
     return (
         <div className="board">
