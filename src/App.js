@@ -4,6 +4,7 @@ import { useState } from 'react';
 import './STYLES/Global.scss'
 import Histroy from './components/Histroy';
 import { calculateWinner } from './helper';
+import Statusmessage from './components/Statusmessage';
 function App() {
 
 
@@ -28,8 +29,6 @@ function App() {
   const [currentmove, setcurrentmove] = useState(0)
   const current = history[currentmove]   //state of the game
   const winner = calculateWinner(current.gameboard)
-  const message = winner ? `Winner is ${winner}` : `Next Player turn ${current.zero ? 'X' : '0'}`
-  console.log(winner)
   console.log(current.gameboard)
 
 
@@ -71,7 +70,7 @@ function App() {
   return (
     <div className="container">
       <h1>TIC TOE GAME</h1>
-      <h2>{message}</h2>
+      <Statusmessage winner={winner} current={current}/>
       <Gameboard gameboard={current.gameboard} handleclick={handleclick} />
       <Histroy history={history} moveto={moveto} currentmove={currentmove}/>
     </div>
