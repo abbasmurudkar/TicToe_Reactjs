@@ -7,7 +7,7 @@ function Gameboard() {
     console.log(gameboard)
     const handleclick = (position) => {
 
-        if (gameboard[position]) {
+        if (gameboard[position]) {  //if board position exist then return this code is written because it will dont allow to overwrite on it
             return;
         }
 
