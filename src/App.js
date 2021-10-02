@@ -35,6 +35,5 @@ console.log(winner)
     </div>
   );
 }
-
 export default App;
 
