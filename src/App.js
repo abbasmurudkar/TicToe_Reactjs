@@ -2,6 +2,7 @@ import './App.css';
 import Gameboard from './components/Gameboard';
 import { useState } from 'react';
 import './STYLES/Global.scss'
+import Histroy from './components/Histroy';
 import { calculateWinner } from './helper';
 function App() {
 
@@ -9,11 +10,11 @@ function App() {
 
   // first use this two logic and then go ahead 
   // const [gameboard, setgameboard] = useState(Array(9).fill(null))
-  // const [zero, setzero] = useState(false)  
+  // const [zero, setzero] = useState(false) 
+  
+  
+
   // after using the first logic slightly change logic for history process
-
-
-
   const [history, sethistory] = useState(
     [
       {  //creating array objects
@@ -63,11 +64,16 @@ function App() {
     // setzero((previous) => !previous) //this statement will make true for zero and then again false
     setcurrentmove(previous=>previous+1)
   }
+
+  const moveto = (move) =>{
+    setcurrentmove(move);
+  }
   return (
     <div className="container">
       <h1>TIC TOE GAME</h1>
       <h2>{message}</h2>
       <Gameboard gameboard={current.gameboard} handleclick={handleclick} />
+      <Histroy history={history} moveto={moveto} currentmove={currentmove}/>
     </div>
   );
 }
