@@ -1,9 +1,10 @@
 import Square from './Square'
 
-function Gameboard({gameboard,handleclick}) {
+function Gameboard({gameboard,handleclick,winningsquares}) {
 
     const rendersquare = (position) => {
-        return <Square value={gameboard[position]} update={() => { handleclick(position) }} />  
+        const iswinningsquare = winningsquares.includes(position)
+        return <Square value={gameboard[position]} update={() => { handleclick(position)}} iswinningsquare={iswinningsquare} />  
         /* if we directly put the function while using props it will immediately execute for that use arrow function 
         like this so that it works proper*/
     }

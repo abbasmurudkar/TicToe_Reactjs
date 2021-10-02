@@ -13,7 +13,12 @@ function App() {
   // const [gameboard, setgameboard] = useState(Array(9).fill(null))
   // const [zero, setzero] = useState(false) 
   
-  
+  const newgame = [
+    {  //creating array objects
+      gameboard: Array(9).fill(null),
+      zero: true
+    }
+  ]
 
   // after using the first logic slightly change logic for history process
   const [history, sethistory] = useState(
@@ -28,7 +33,7 @@ function App() {
 
   const [currentmove, setcurrentmove] = useState(0)
   const current = history[currentmove]   //state of the game
-  const winner = calculateWinner(current.gameboard)
+  const {winner, winningsquares} = calculateWinner(current.gameboard)
   console.log(current.gameboard)
 
 
@@ -63,7 +68,10 @@ function App() {
     // setzero((previous) => !previous) //this statement will make true for zero and then again false
     setcurrentmove(previous=>previous+1)
   }
-
+const Reset = ()=>{
+  sethistory(newgame)
+  setcurrentmove(0)
+}
   const moveto = (move) =>{
     setcurrentmove(move);
   }
@@ -71,7 +79,8 @@ function App() {
     <div className="container">
       <h1>TIC TOE GAME</h1>
       <Statusmessage winner={winner} current={current}/>
-      <Gameboard gameboard={current.gameboard} handleclick={handleclick} />
+      <Gameboard gameboard={current.gameboard} handleclick={handleclick} winningsquares={winningsquares}/>
+      <button type="button" onClick={Reset}>START NEW GAME</button>
       <Histroy history={history} moveto={moveto} currentmove={currentmove}/>
     </div>
   );
