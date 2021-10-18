@@ -77,11 +77,13 @@ const Reset = ()=>{
   }
   return (
     <div className="container">
-      <h1>TIC TOE GAME</h1>
+      <h1 className="text-orange">TIC <span className="text-green">TOE</span> GAME</h1>
       <Statusmessage winner={winner} current={current}/>
       <Gameboard gameboard={current.gameboard} handleclick={handleclick} winningsquares={winningsquares}/>
-      <button type="button" onClick={Reset}>START NEW GAME</button>
+      <button type="button" onClick={Reset} className={`btn-reset ${winner ? 'active': ''}`}>START NEW GAME</button>
+      <h2  style={{fontWeight: 'normal'}}>CURRENT GAME HISTORY</h2>
       <Histroy history={history} moveto={moveto} currentmove={currentmove}/>
+      <div className="bg-balls"/>
     </div>
   );
 }
